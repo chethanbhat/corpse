@@ -1,0 +1,37 @@
+# Site settings
+title: Corpse.com
+description: "Death has been seen as an actual character since the beginning of history. Death was depicted as the grim reaper who actually took the life of the living. He is most commonly seen as a skeleton with a hooded robe and scythe and referred to as the Grim Reaper. Some see the Grim Reaper as the actual taker of death, others see him just detaching the soul from the body. For those who believe he actually took lives, also believed that there would then be a way to avoid death or talk him out of it."
+
+# Build settings
+
+baseurl: "/corpse"
+url: "https://chethanbhat.github.io/corpse/"
+markdown: kramdown
+source: .
+destination: ./_site
+permalink: /:title
+paginate: 8
+paginate_path: /page:num/
+excerpt_separator: "<!-- Read more -->"
+
+# Default values
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Custom variables
+version: "1.0.0"
+
+# Options
+custom_header: false
+custom_nav_footer: false
+reverse: false

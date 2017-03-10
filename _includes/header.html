@@ -1,0 +1,34 @@
+<header id="header">
+  <div class="navigation">
+    <div class="logo">
+      <a href="{{ site.baseurl }}/">
+        <h1>
+          Corpse<span>.com</span>
+        </h1>
+      </a>
+    </div>
+    <div id="nav-links" class="navigation-page-links">
+      <!-- Nav pages -->
+      {% if page.url == '/' %}
+      <a class="active-link" href="{{ site.baseurl }}/" title="Home">Home</a>
+      {% else %}
+      <a href="{{ site.baseurl }}/" title="Home">Home</a>
+      {% endif %}
+
+      {% assign sorted_pages = site.pages | sort:"order" %}
+	    {% for node in sorted_pages %}
+	      {% if node.layout == "page" %}
+          {% if page.url == node.url %}
+	           <a class="active-link" href="{% if site.baseurl == "/" %}{{ node.url }}{% else %}{{ node.url | prepend: site.baseurl }}{% endif %}" title="{{ node.title }}">{{ node.title }}</a>
+          {% else %}
+             <a href="{% if site.baseurl == "/" %}{{ node.url }}{% else %}{{ node.url | prepend: site.baseurl }}{% endif %}" title="{{ node.title }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+	    {% endfor %}
+
+      <!-- Nav links -->
+	    {% include link.html %}
+
+    </div>
+  </div>
+</header>
